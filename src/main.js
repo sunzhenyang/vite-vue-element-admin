@@ -7,6 +7,8 @@ import mLibs from './libs'
 
 import 'virtual:svg-icons-register'
 
+import './assets/fonts/iconfont.css'
+
 const app = createApp(App)
 
 app.use(createPinia())
