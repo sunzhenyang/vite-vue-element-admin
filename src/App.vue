@@ -4,6 +4,7 @@ import { RouterView } from 'vue-router'
 
 <template>
   <h1>Vue Test!</h1>
+  <svg-icon name="logo"></svg-icon>
   <RouterView />
 </template>
 
