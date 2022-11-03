@@ -1,5 +1,5 @@
 <template>
-  <svg aria-hidden="true">
+  <svg aria-hidden="true" class="svg-icon">
     <use :class="fillClass" :xlink:href="symbolId" :fill="color" />
   </svg>
 </template>
@@ -25,3 +25,13 @@ const props = defineProps({
 // 真实显示的 svg 图标名（拼接 #icon-）
 const symbolId = computed(() => `#icon-${props.name}`)
 </script>
+
+<style scoped>
+.svg-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+</style>
