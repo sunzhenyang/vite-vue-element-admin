@@ -17,3 +17,5 @@ git push
 - SVG图标支持
     - `.svg` 文件需放到 `src/assets/svg` 文件夹
     - `<svg-icon name=[name]></svg-icon>` 方式直接调用
+- 字体图标支持
+    - `<i class="iconfont icon-[name]></i>` 方式使用
