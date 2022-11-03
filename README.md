@@ -5,9 +5,11 @@
 ```bash
 # 添加到暂存区
 git add .
-# 提交代码
+
+# 提交到本地仓库
 git cz
-# 推送代码
+
+# 推送到远程仓库
 git push
 ```
 
@@ -19,3 +21,4 @@ git push
     - `<svg-icon name=[name]></svg-icon>` 方式直接调用
 - 字体图标支持
     - `<i class="iconfont icon-[name]></i>` 方式使用
+- 集成ElementPlus，配置按需自动导入
