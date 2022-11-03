@@ -9,6 +9,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "element-plus": "^2.2.19",
     "fast-glob": "^3.2.12",
     "pinia": "^2.0.21",
     "vue": "^3.2.38",
@@ -26,6 +27,8 @@
     "husky": "^7.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
+    "unplugin-auto-import": "^0.11.4",
+    "unplugin-vue-components": "^0.22.9",
     "vite": "^3.0.9",
     "vite-plugin-svg-icons": "^2.0.1"
   },
