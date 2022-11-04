@@ -11,10 +11,6 @@ export const userStore = defineStore('user', {
     async login(userInfo) {
       const { username, password } = userInfo
       return await login({ username, password: md5(password) })
-    },
-    setToken(token) {
-      this[TOKEN] = token
-      console.log(this[TOKEN])
     }
   },
   persist: true
