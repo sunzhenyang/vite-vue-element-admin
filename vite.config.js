@@ -31,5 +31,17 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  server: {
+    cors: true,
+    open: true,
+    host: '0.0.0.0',
+    proxy: {
+      '/api': {
+        target: 'https://api.imooc-admin.lgdsunday.club/', //代理接口
+        changeOrigin: true
+        // rewrite: path => path.replace(/^\/api/, '')
+      }
+    }
   }
 })

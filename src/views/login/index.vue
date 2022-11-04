@@ -44,6 +44,7 @@
         type="primary"
         size="large"
         class="submitBtn"
+        :loading="loading"
         @click="handleSubmit"
         >登录</el-button
       >
@@ -54,6 +55,11 @@
 <script setup>
 import { ref } from 'vue'
 import { validatePassword } from './rules'
+import { userStore } from '@/stores/user'
+import { storeToRefs } from 'pinia'
+import { TOKEN } from '@/constant'
+
+const loading = ref(false)
 
 // 数据源
 const loginForm = ref({
@@ -79,9 +85,6 @@ const loginRules = ref({
   ]
 })
 
-// 表单元素
-const ruleFormRef = ref(null)
-
 // 处理密码框文本显示状态
 const passwordType = ref('password')
 const handlePwdTypeChange = () => {
@@ -92,10 +95,27 @@ const handlePwdTypeChange = () => {
   }
 }
 
+// 表单元素
+const ruleFormRef = ref(null)
+
+const token = storeToRefs(userStore())[TOKEN]
+
 // 提交表单
 function handleSubmit() {
   ruleFormRef.value.validate(async valid => {
-    console.log(valid)
+    if (valid) {
+      loading.value = true
+      const { login } = userStore()
+      login(loginForm.value)
+        .then(res => {
+          loading.value = false
+          token.value = res.token
+        })
+        .catch(err => {
+          loading.value = false
+          console.log(err)
+        })
+    }
   })
 }
 </script>
