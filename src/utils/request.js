@@ -49,12 +49,22 @@ service.interceptors.response.use(
   },
   error => {
     // TODO: 将来处理 token 超时问题
-    // 提示错误信息
-    ElMessage.error({
-      type: 'error',
-      message: error.message,
-      grouping: true
-    })
+    if (
+      error.response &&
+      error.response.data &&
+      error.response.data.code === 401
+    ) {
+      // token超时，自动退出
+      userStore().logout()
+    } else {
+      // 提示错误信息
+      ElMessage.error({
+        type: 'error',
+        message: error.message,
+        grouping: true
+      })
+    }
+
     return Promise.reject(error)
   }
 )
