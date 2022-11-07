@@ -28,7 +28,7 @@ import variables from '@/styles/variables.module.scss'
 
 <style lang="scss" scoped>
 @import '@/styles/mixin.scss';
-@import '@/styles/variables.scss';
+@import '@/styles/variables.module.scss';
 
 .app-wrapper {
   @include clearfix;
