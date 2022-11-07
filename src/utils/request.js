@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { userStore } from '@/stores/user'
+import { TOKEN } from '@/constant'
 
 const service = axios.create({
   baseURL: import.meta.env.VITE_VUE_APP_BASE_API,
@@ -6,11 +8,17 @@ const service = axios.create({
 })
 
 // 请求拦截器
-service.interceptors.request.use(config => {
-  // 添加接口校验码
-  config.headers.icode = 'DE31B80D68BC2A25'
-  return config
-})
+service.interceptors.request.use(
+  config => {
+    // 添加接口校验码
+    config.headers.icode = 'DE31B80D68BC2A25'
+    config.headers.Authorization = `Bearer ${userStore()[TOKEN]}`
+    return config
+  },
+  error => {
+    return Promise.reject(error)
+  }
+)
 
 // 响应拦截器
 service.interceptors.response.use(
