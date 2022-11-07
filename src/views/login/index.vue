@@ -58,7 +58,10 @@ import { validatePassword } from './rules'
 import { userStore } from '@/stores/user'
 import { storeToRefs } from 'pinia'
 import { TOKEN } from '@/constant'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
+// 登录按钮加载状态
 const loading = ref(false)
 
 // 数据源
@@ -110,6 +113,7 @@ function handleSubmit() {
         .then(res => {
           loading.value = false
           token.value = res.token
+          router.push('/')
         })
         .catch(err => {
           loading.value = false
