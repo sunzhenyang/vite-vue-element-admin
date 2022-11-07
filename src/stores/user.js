@@ -1,11 +1,12 @@
 import { defineStore } from 'pinia'
 import md5 from 'md5'
 import { login, getUserInfo } from '../api/sys'
-import { TOKEN } from '../constant'
+import { TOKEN, TIME_STAMP } from '../constant'
 import router from '@/router'
 export const userStore = defineStore('user', {
   state: () => ({
     [TOKEN]: '',
+    [TIME_STAMP]: '',
     userInfo: {}
   }),
   getters: {
@@ -23,6 +24,7 @@ export const userStore = defineStore('user', {
     },
     logout() {
       this[TOKEN] = ''
+      this[TIME_STAMP] = ''
       this.userInfo = {}
       router.push('/login')
     }

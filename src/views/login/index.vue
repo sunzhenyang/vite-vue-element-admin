@@ -59,6 +59,7 @@ import { userStore } from '@/stores/user'
 import { storeToRefs } from 'pinia'
 import { TOKEN } from '@/constant'
 import { useRouter } from 'vue-router'
+import { setTimeStamp } from '@/utils/auth'
 const router = useRouter()
 
 // 登录按钮加载状态
@@ -113,6 +114,7 @@ function handleSubmit() {
         .then(res => {
           loading.value = false
           token.value = res.token
+          setTimeStamp()
           router.push('/')
         })
         .catch(err => {

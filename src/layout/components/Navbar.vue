@@ -10,7 +10,6 @@
             :src="userInfo.avatar"
           ></el-avatar>
           <el-icon><i-ep-setting /></el-icon>
-          <IconEpSetting />
         </div>
         <template #dropdown>
           <el-dropdown-menu class="user-dropdown">
@@ -33,7 +32,6 @@ import { storeToRefs } from 'pinia'
 const user_store = userStore()
 const { userInfo } = storeToRefs(user_store)
 const { logout } = user_store
-userInfo.value.avatar = 'https://sunzhenyang.github.io/avatar.png'
 </script>
 
 <style lang="scss" scoped>
