@@ -17,10 +17,9 @@
             <router-link to="/">
               <el-dropdown-item> 首页 </el-dropdown-item>
             </router-link>
-            <a target="_blank" href="">
-              <el-dropdown-item>课程主页</el-dropdown-item>
-            </a>
-            <el-dropdown-item divided> 退出登录 </el-dropdown-item>
+            <el-dropdown-item divided @click="logout">
+              退出登录
+            </el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -31,7 +30,10 @@
 <script setup>
 import { userStore } from '@/stores/user'
 import { storeToRefs } from 'pinia'
-const { userInfo } = storeToRefs(userStore())
+const user_store = userStore()
+const { userInfo } = storeToRefs(user_store)
+const { logout } = user_store
+userInfo.value.avatar = 'https://sunzhenyang.github.io/avatar.png'
 </script>
 
 <style lang="scss" scoped>
