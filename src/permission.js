@@ -14,7 +14,6 @@ router.beforeEach(async (to, from, next) => {
   const token = userData[TOKEN]
   const { userInfo } = userData
   const { getUserInfo, hasUserInfo } = userStore()
-  console.log(hasUserInfo)
   if (token.value) {
     // 已登录不允许进入白名单页面
     if (whiteList.includes(to.path)) {
