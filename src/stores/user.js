@@ -29,5 +29,10 @@ export const userStore = defineStore('user', {
       router.push('/login')
     }
   },
-  persist: true
+  persist: [
+    {
+      paths: [TOKEN, TIME_STAMP],
+      storage: localStorage
+    }
+  ]
 })
