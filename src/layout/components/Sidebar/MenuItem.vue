@@ -1,12 +1,14 @@
 <template>
-  <i v-if="icon.includes('el-icon')" class="sub-el-icon" :class="icon"></i>
-  <svg-icon v-else :icon="icon"></svg-icon>
+  <component class="icon" :is="iconName" />
+  <i-ep-setting class="icon" />
+  <Setting />
+  <!-- <i v-if="icon.includes('el-icon')" class="sub-el-icon" :class="icon"></i>
+  <svg-icon v-else :name="icon"></svg-icon> -->
   <span>{{ title }}</span>
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
-defineProps({
+const props = defineProps({
   title: {
     type: String,
     required: true
@@ -16,6 +18,19 @@ defineProps({
     required: true
   }
 })
+
+const iconName = `i-ep-${props.icon}`
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  line-height: 1.5em;
+  font-weight: bold;
+  font-size: 15px;
+  background: #f00;
+  margin-right: 4px;
+}
+</style>

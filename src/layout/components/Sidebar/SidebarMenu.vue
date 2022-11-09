@@ -3,9 +3,9 @@
   <el-menu
     :unique-opened="true"
     default-active="2-1"
-    background-color="#545c64"
-    text-color="#fff"
-    active-text-color="#ffd04b"
+    :background-color="cssVar.menuBg"
+    :text-color="cssVar.menuText"
+    :active-text-color="cssVar.menuActiveText"
   >
     <sidebar-item
       v-for="item in routes"
@@ -18,8 +18,12 @@
 <script setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { userStore } from '@/stores/user'
 import { filterRouters, generateMenus } from '@/utils/route'
 import SidebarItem from './SidebarItem.vue'
+import { storeToRefs } from 'pinia'
+
+const { cssVar } = storeToRefs(userStore())
 
 const router = useRouter()
 const routes = computed(() => {

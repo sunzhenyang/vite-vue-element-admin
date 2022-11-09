@@ -3,6 +3,7 @@ import md5 from 'md5'
 import { login, getUserInfo } from '../api/sys'
 import { TOKEN, TIME_STAMP } from '../constant'
 import router from '@/router'
+import variables from '@/styles/variables.module.scss'
 export const userStore = defineStore('user', {
   state: () => ({
     [TOKEN]: '',
@@ -12,7 +13,8 @@ export const userStore = defineStore('user', {
   getters: {
     hasUserInfo: state => {
       return JSON.stringify(state.userInfo) != '{}'
-    }
+    },
+    cssVar: () => variables
   },
   actions: {
     async login(userInfo) {
