@@ -1,6 +1,7 @@
 <template>
   <!-- 一级 menu 菜单 -->
   <el-menu
+    :collapse="!sidebarOpened"
     :unique-opened="true"
     :default-active="activeMenu"
     :background-color="cssVar.menuBg"
@@ -20,11 +21,15 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { userStore } from '@/stores/user'
+import { appStore } from '@/stores/app'
 import { filterRouters, generateMenus } from '@/utils/route'
 import SidebarItem from './SidebarItem.vue'
 import { storeToRefs } from 'pinia'
 
 const { cssVar } = storeToRefs(userStore())
+
+const store_app = appStore()
+const { sidebarOpened } = storeToRefs(store_app)
 
 const router = useRouter()
 const routes = computed(() => {

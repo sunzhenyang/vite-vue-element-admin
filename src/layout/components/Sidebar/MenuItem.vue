@@ -1,7 +1,7 @@
 <template>
   <i
     v-if="icon.includes('iconfont')"
-    class="iconfont"
+    class="iconfont sub-el-icon"
     :class="`icon-${icon}`"
   ></i>
   <svg-icon v-else :name="icon"></svg-icon>

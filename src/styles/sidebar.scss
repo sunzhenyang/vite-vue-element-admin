@@ -17,6 +17,7 @@
     left: 0;
     z-index: 1001;
     overflow: hidden;
+    transition: all 0.24s ease;
 
     // 重置 element-plus 的css
     .horizontal-collapse-transition {
@@ -59,6 +60,12 @@
     .sub-el-icon {
       margin-right: 12px;
       margin-left: -2px;
+    }
+
+    .el-menu--collapse {
+      .svg-icon {
+        margin-right: 0;
+      }
     }
 
     .el-menu {

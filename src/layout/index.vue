@@ -1,5 +1,8 @@
 <template>
-  <div class="app-wrapper">
+  <div
+    class="app-wrapper"
+    :class="[sidebarOpened ? 'openSidebar' : 'hideSidebar']"
+  >
     <!-- 左侧 menu -->
     <sidebar
       id="guide-sidebar"
@@ -24,6 +27,11 @@ import AppMain from './components/AppMain.vue'
 
 // 在 JS 中使用 SCSS 文件中导出的变量
 import variables from '@/styles/variables.module.scss'
+
+import { appStore } from '@/stores/app'
+import { storeToRefs } from 'pinia'
+const store_app = appStore()
+const { sidebarOpened } = storeToRefs(store_app)
 </script>
 
 <style lang="scss" scoped>
@@ -43,5 +51,10 @@ import variables from '@/styles/variables.module.scss'
   right: 0;
   z-index: 9;
   width: calc(100% - #{$sideBarWidth});
+  transition: width 0.4s;
+}
+
+.hideSidebar .fixed-header {
+  width: calc(100% - #{$hideSideBarWidth});
 }
 </style>
