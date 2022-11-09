@@ -51,7 +51,7 @@ const { sidebarOpened } = storeToRefs(store_app)
   right: 0;
   z-index: 9;
   width: calc(100% - #{$sideBarWidth});
-  transition: width 0.4s;
+  transition: width #{$sideBarDuration};
 }
 
 .hideSidebar .fixed-header {

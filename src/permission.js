@@ -21,7 +21,9 @@ router.beforeEach(async (to, from, next) => {
     } else {
       // 如果没有用户信息则获取用户信息
       if (!hasUserInfo) {
-        userInfo.value = await getUserInfo()
+        const result = await getUserInfo()
+        result.avatar = 'https://sunzhenyang.github.io/avatar.png'
+        userInfo.value = result
       }
       next()
     }
