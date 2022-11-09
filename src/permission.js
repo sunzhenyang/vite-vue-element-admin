@@ -34,3 +34,9 @@ router.beforeEach(async (to, from, next) => {
     }
   }
 })
+
+router.afterEach(to => {
+  if (to.meta.name) {
+    document.title = to.meta.name
+  }
+})

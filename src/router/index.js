@@ -10,7 +10,7 @@ const privateRoutes = [
     component: layout,
     redirect: '/user/manage',
     meta: {
-      title: 'user',
+      title: '用户中心',
       icon: 'personnel'
     },
     children: [
@@ -18,7 +18,7 @@ const privateRoutes = [
         path: '/user/manage',
         component: () => import('@/views/user-manage/index.vue'),
         meta: {
-          title: 'userManage',
+          title: '用户管理',
           icon: 'personnel-manage'
         }
       },
@@ -26,7 +26,7 @@ const privateRoutes = [
         path: '/user/role',
         component: () => import('@/views/role-list/index.vue'),
         meta: {
-          title: 'roleList',
+          title: '角色列表',
           icon: 'role'
         }
       },
@@ -34,7 +34,7 @@ const privateRoutes = [
         path: '/user/permission',
         component: () => import('@/views/permission-list/index.vue'),
         meta: {
-          title: 'permissionList',
+          title: '权限列表',
           icon: 'permission'
         }
       },
@@ -43,7 +43,7 @@ const privateRoutes = [
         name: 'userInfo',
         component: () => import('@/views/user-info/index.vue'),
         meta: {
-          title: 'userInfo'
+          title: '用户详情'
         }
       },
       {
@@ -51,7 +51,7 @@ const privateRoutes = [
         name: 'import',
         component: () => import('@/views/import/index.vue'),
         meta: {
-          title: 'excelImport'
+          title: '导入'
         }
       }
     ]
@@ -61,7 +61,7 @@ const privateRoutes = [
     component: layout,
     redirect: '/article/ranking',
     meta: {
-      title: 'article',
+      title: '文章',
       icon: 'article'
     },
     children: [
@@ -69,7 +69,7 @@ const privateRoutes = [
         path: '/article/ranking',
         component: () => import('@/views/article-ranking/index.vue'),
         meta: {
-          title: 'articleRanking',
+          title: '文章排名',
           icon: 'article-ranking'
         }
       },
@@ -77,14 +77,14 @@ const privateRoutes = [
         path: '/article/:id',
         component: () => import('@/views/article-detail/index.vue'),
         meta: {
-          title: 'articleDetail'
+          title: '文章详情'
         }
       },
       {
         path: '/article/create',
         component: () => import('@/views/article-create/index.vue'),
         meta: {
-          title: 'articleCreate',
+          title: '创建文章',
           icon: 'article-create'
         }
       },
@@ -92,7 +92,7 @@ const privateRoutes = [
         path: '/article/editor/:id',
         component: () => import('@/views/article-create/index.vue'),
         meta: {
-          title: 'articleEditor'
+          title: '编辑文章'
         }
       }
     ]
@@ -118,19 +118,25 @@ const publicRoutes = [
         name: 'profile',
         component: () => import('@/views/profile/index.vue'),
         meta: {
-          title: 'profile',
-          icon: 'setting'
+          title: '个人中心',
+          icon: 'user2'
         }
       },
       {
         path: '/404',
         name: '404',
-        component: () => import('@/views/error-page/404.vue')
+        component: () => import('@/views/error-page/404.vue'),
+        meta: {
+          title: '页面未找到'
+        }
       },
       {
         path: '/401',
         name: '401',
-        component: () => import('@/views/error-page/401.vue')
+        component: () => import('@/views/error-page/401.vue'),
+        meta: {
+          title: '未授权'
+        }
       }
     ]
   }

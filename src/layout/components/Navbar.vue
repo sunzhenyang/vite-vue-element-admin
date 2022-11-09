@@ -9,7 +9,7 @@
             :size="40"
             :src="userInfo.avatar"
           ></el-avatar>
-          <el-icon><i-ep-setting /></el-icon>
+          <el-icon><Setting /></el-icon>
         </div>
         <template #dropdown>
           <el-dropdown-menu class="user-dropdown">

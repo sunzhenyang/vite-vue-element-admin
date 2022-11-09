@@ -2,10 +2,11 @@
   <!-- 一级 menu 菜单 -->
   <el-menu
     :unique-opened="true"
-    default-active="2-1"
+    :default-active="activeMenu"
     :background-color="cssVar.menuBg"
     :text-color="cssVar.menuText"
     :active-text-color="cssVar.menuActiveText"
+    router
   >
     <sidebar-item
       v-for="item in routes"
@@ -17,7 +18,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { userStore } from '@/stores/user'
 import { filterRouters, generateMenus } from '@/utils/route'
 import SidebarItem from './SidebarItem.vue'
@@ -30,6 +31,17 @@ const routes = computed(() => {
   const filterRoutes = filterRouters(router.getRoutes())
   return generateMenus(filterRoutes)
 })
+
+// 获取当前激活菜单
+const route = useRoute()
+const activeMenu = computed(() => route.path)
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '@/styles/variables.module.scss';
+:deep(.el-menu-item) {
+  &.is-active {
+    background: $menuActive;
+  }
+}
+</style>
