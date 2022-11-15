@@ -3,7 +3,7 @@
     <div class="logo-container">
       <el-avatar
         shape="square"
-        :size="40"
+        :size="logoHeight"
         src="https://sunzhenyang.github.io/avatar.png"
       />
       <Transition>
@@ -20,14 +20,19 @@
 import SidebarMenu from './SidebarMenu.vue'
 import { appStore } from '@/stores/app'
 import { storeToRefs } from 'pinia'
+import { ref } from 'vue'
+import { computed } from 'vue'
 
 const store_app = appStore()
 const { sidebarOpened } = storeToRefs(store_app)
+
+let logoHeight = ref(44)
+let logoHeightCssVal = computed(() => logoHeight.value + 'px')
 </script>
 
 <style lang="scss" scoped>
 .logo-container {
-  height: 44px;
+  height: v-bind(logoHeightCssVal);
   padding: 10px 0 22px 0;
   display: flex;
   align-items: center;
