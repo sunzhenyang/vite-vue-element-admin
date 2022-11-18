@@ -7,7 +7,7 @@
         src="https://sunzhenyang.github.io/avatar.png"
       />
       <Transition>
-        <h1 class="logo-title" v-if="sidebarOpened">ElementPlusAdmin</h1>
+        <h1 class="logo-title" v-if="sidebarOpened">{{ $t('msg.test') }}</h1>
       </Transition>
     </div>
     <el-scrollbar>
