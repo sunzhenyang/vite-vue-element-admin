@@ -1,6 +1,7 @@
 <template>
   <div class="navbar">
     <hamburger class="hamburger-container" />
+    <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -29,6 +30,7 @@
 
 <script setup>
 import Hamburger from '@/components/Hamburger.vue'
+import Breadcrumb from '@/components/Breadcrumb/index.vue'
 import { userStore } from '@/stores/user'
 import { storeToRefs } from 'pinia'
 const user_store = userStore()
@@ -54,6 +56,9 @@ const { logout } = user_store
     &:hover {
       background: rgba(0, 0, 0, 0.1);
     }
+  }
+  .breadcrumb-container {
+    float: left;
   }
   .right-menu {
     display: flex;
