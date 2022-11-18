@@ -12,7 +12,8 @@ const pathSrc = path.resolve(__dirname, 'src')
 export default defineConfig({
   resolve: {
     alias: {
-      '@': pathSrc
+      '@': pathSrc,
+      'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js'
     }
   },
   plugins: [
