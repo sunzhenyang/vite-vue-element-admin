@@ -1,4 +1,5 @@
 import { createI18n } from 'vue-i18n'
+import { LANG, LANG_DEFAULT } from '@/constant'
 
 // 数据源
 const messages = {
@@ -15,7 +16,9 @@ const messages = {
 }
 
 // 语言变量
-const locale = 'en'
+const appStore = localStorage.getItem('app')
+const language = (appStore && JSON.parse(appStore)[LANG]) || ''
+const locale = language || LANG_DEFAULT
 
 // 初始化实例
 const i18n = createI18n({

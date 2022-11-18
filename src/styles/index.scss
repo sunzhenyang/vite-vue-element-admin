@@ -41,7 +41,8 @@ a:hover {
   text-decoration: none;
 }
 
-div:focus {
+div:focus,
+svg {
   outline: none;
 }
 

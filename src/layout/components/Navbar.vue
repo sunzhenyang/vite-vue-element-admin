@@ -3,6 +3,7 @@
     <hamburger class="hamburger-container" />
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
+      <lang-select class="right-menu-item hover-effect" />
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -33,6 +34,7 @@ import Hamburger from '@/components/Hamburger.vue'
 import Breadcrumb from '@/components/Breadcrumb/index.vue'
 import { userStore } from '@/stores/user'
 import { storeToRefs } from 'pinia'
+import LangSelect from '@/components/LangSelect/index.vue'
 const user_store = userStore()
 const { userInfo } = storeToRefs(user_store)
 const { logout } = user_store
@@ -65,7 +67,17 @@ const { logout } = user_store
     align-items: center;
     float: right;
     padding-right: 16px;
+    :deep(.right-menu-item) {
+      display: inline-block;
+      padding: 0 18px 0 0;
+      font-size: 24px;
+      color: #5a5e66;
+      vertical-align: text-bottom;
 
+      &.hover-effect {
+        cursor: pointer;
+      }
+    }
     :deep(.avatar-container) {
       cursor: pointer;
       .avatar-wrapper {
