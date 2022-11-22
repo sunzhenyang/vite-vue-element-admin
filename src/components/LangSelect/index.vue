@@ -24,7 +24,6 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { defineProps } from 'vue'
 import { appStore } from '@/stores/app'
 import { storeToRefs } from 'pinia'
 import { LANG } from '@/constant'

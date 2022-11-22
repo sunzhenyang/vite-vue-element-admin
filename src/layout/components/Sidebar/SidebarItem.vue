@@ -19,7 +19,6 @@
 
 <script setup>
 import MenuItem from './MenuItem.vue'
-import { defineProps } from 'vue'
 // 定义 props
 defineProps({
   route: {

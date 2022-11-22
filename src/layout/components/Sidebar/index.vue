@@ -33,12 +33,12 @@ let logoHeightCssVal = computed(() => logoHeight.value + 'px')
 <style lang="scss" scoped>
 .logo-container {
   height: v-bind(logoHeightCssVal);
-  padding: 10px 0 22px 0;
+  padding: 12px 0;
   display: flex;
   align-items: center;
   justify-content: center;
   .logo-title {
-    margin-left: 10px;
+    margin-left: 16px;
     color: #fff;
     font-weight: 600;
     line-height: 50px;
