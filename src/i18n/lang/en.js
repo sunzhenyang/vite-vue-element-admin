@@ -2,6 +2,8 @@ export default {
   login: {
     title: 'User Login',
     loginBtn: 'Login',
+    usernameTip: 'username',
+    passwordTip: 'password',
     usernameRule: 'Username is required',
     passwordRule: 'Password cannot be less than 6 digits',
     desc: `

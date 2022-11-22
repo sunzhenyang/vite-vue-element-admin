@@ -2,6 +2,8 @@ export default {
   login: {
     title: '用户登录',
     loginBtn: '登录',
+    usernameTip: '用户名',
+    passwordTip: '密码',
     usernameRule: '用户名为必填项',
     passwordRule: '密码不能少于6位',
     desc: `
@@ -56,7 +58,6 @@ export default {
     lang: '国际化',
     guide: '功能引导',
     home: '首页',
-    course: '课程主页',
     logout: '退出登录'
   },
   guide: {

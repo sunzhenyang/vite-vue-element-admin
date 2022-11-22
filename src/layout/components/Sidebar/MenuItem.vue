@@ -5,10 +5,11 @@
     :class="`icon-${icon}`"
   ></i>
   <svg-icon v-else :name="icon"></svg-icon>
-  <span>{{ title }}</span>
+  <span>{{ generateTitle(title) }}</span>
 </template>
 
 <script setup>
+import { generateTitle } from '@/utils/i18n'
 defineProps({
   title: {
     type: String,

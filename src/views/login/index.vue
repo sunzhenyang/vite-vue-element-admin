@@ -7,7 +7,8 @@
       ref="ruleFormRef"
     >
       <div class="title-container">
-        <h3 class="title">用户登录</h3>
+        <h3 class="title">{{ $t('msg.login.title') }}</h3>
+        <lang-select class="lang-select" effect="light"></lang-select>
       </div>
 
       <el-form-item prop="username">
@@ -15,7 +16,7 @@
           <svg-icon name="user" />
         </span>
         <el-input
-          placeholder="用户名"
+          :placeholder="$t('msg.login.usernameTip')"
           name="username"
           type="text"
           v-model="loginForm.username"
@@ -27,7 +28,7 @@
           <svg-icon name="password" />
         </span>
         <el-input
-          placeholder="密码"
+          :placeholder="$t('msg.login.passwordTip')"
           name="password"
           v-model="loginForm.password"
           :type="passwordType"
@@ -46,13 +47,15 @@
         class="submitBtn"
         :loading="loading"
         @click="handleSubmit"
-        >登录</el-button
+        >{{ $t('msg.login.loginBtn') }}</el-button
       >
+      <div class="tips" v-html="$t('msg.login.desc')"></div>
     </el-form>
   </div>
 </template>
 
 <script setup>
+import LangSelect from '@/components/LangSelect/index.vue'
 import { ref } from 'vue'
 import { validatePassword } from './rules'
 import { userStore } from '@/stores/user'
@@ -60,6 +63,7 @@ import { storeToRefs } from 'pinia'
 import { TOKEN } from '@/constant'
 import { useRouter } from 'vue-router'
 import { setTimeStamp } from '@/utils/auth'
+import { useI18n } from 'vue-i18n'
 const router = useRouter()
 
 // 登录按钮加载状态
@@ -72,12 +76,13 @@ const loginForm = ref({
 })
 
 // 验证规则
+const i18n = useI18n()
 const loginRules = ref({
   username: [
     {
       required: true,
       trigger: 'blur',
-      message: '用户名为必填项'
+      message: i18n.t('msg.login.usernameRule')
     }
   ],
   password: [
@@ -191,6 +196,16 @@ $cursor: #fff;
       text-align: center;
       font-weight: bold;
     }
+    .lang-select {
+      position: absolute;
+      top: 4px;
+      right: 0;
+      background-color: #fff;
+      font-size: 22px;
+      padding: 4px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
   }
 
   .show-pwd {
@@ -208,6 +223,12 @@ $cursor: #fff;
     font-size: 16px;
     height: 48px;
     margin-top: 12px;
+  }
+  .tips {
+    font-size: 16px;
+    line-height: 28px;
+    color: #fff;
+    margin-bottom: 10px;
   }
 }
 </style>
